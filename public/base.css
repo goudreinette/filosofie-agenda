@@ -82,7 +82,9 @@ footer {
     padding-bottom: 50px;
     text-align: right;
     font-size: 12px;
+    display: flex;
     color: #aaa;
+    justify-content: space-between;
 }
 
 footer, .container {
