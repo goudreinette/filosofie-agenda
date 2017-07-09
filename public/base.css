@@ -1,6 +1,9 @@
 @import "//cdn.rawgit.com/necolas/normalize.css/master/normalize.css";
 @import "//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css";
 
+/**
+ * Fonts
+ */
 @font-face {
     font-family: 'neuzeit';
     src: url('neuzeit.ttf');
@@ -12,7 +15,44 @@
     font-weight: bold;
 }
 
+/**
+ * Responsive
+ */
+@media (max-width: 800px) {
+    body {
+        font-size: 14px !important;
+    }
+    h1 {
+        font-size: 36px !important;
+        padding-top: 10px;
+    }
 
+    .container {
+        padding: 20px !important;
+        margin: 0 !important;
+    }
+
+    .name {
+        font-size: 18px !important;
+    }
+
+    .details {
+        width: calc(100% - 5px) !important;
+    }
+
+    .highlight {
+        width: 5px !important;
+    }
+
+    .highlight .day {
+        display: none;
+    }
+}
+
+
+/**
+ * Body
+ */
 body {
     font-family: 'neuzeit';
     color: #333;
