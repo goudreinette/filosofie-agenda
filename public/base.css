@@ -1,8 +1,20 @@
 @import "//cdn.rawgit.com/necolas/normalize.css/master/normalize.css";
 @import "//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css";
 
+@font-face {
+    font-family: 'neuzeit';
+    src: url('neuzeit.ttf');
+}
+
+@font-face {
+    font-family: 'neuzeit';
+    src: url('neuzeit-bold.ttf');
+    font-weight: bold;
+}
+
+
 body {
-    font-family: NeuzeitGroTOT;
+    font-family: 'neuzeit';
     color: #333;
     /*background: url("/art_demo.jpg");
     background-size: cover;*/
