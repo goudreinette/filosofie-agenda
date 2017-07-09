@@ -33,7 +33,7 @@ def praktische_filosofie_items
       month = date.css('.month').text
 
       Item.new(city: tr.attr('data-location'),
-               name: tr.css('.description').text,
+               name: tr.css('.description').text.gsub(/\s+/, ' ')[1..-2],
                date: Date.parse("#{day} #{month}"),
                source: 'praktischefilosofie.nl',
                link: tr.css('.description a').attr('href'))

@@ -17,6 +17,7 @@ get '/feed.ics' do
   # Generate feed
   cal = Icalendar::Calendar.new
   all_items.map do |item|
+    p item.name
     cal.event do |e|
       e.summary     = item.name
       e.description = item.name
