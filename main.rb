@@ -7,7 +7,7 @@ require_all 'source'
 
 get '/' do
   @title = 'Filosofie agenda'
-  @items = filosofie_nl_items
+  @items = all_items
   pp filosofie_nl_items
   slim :index
 end

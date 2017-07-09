@@ -4,17 +4,41 @@
 body {
     font-family: NeuzeitGroTOT;
     color: #333;
+    /*background: url("/art_demo.jpg");
+    background-size: cover;*/
     background: #eee;
 }
 
-.container {
+.overlay {
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    position: fixed;
+    background: #333;
+    top: 0;
+    opacity: 0.6;
+    display: none;
+}
+
+footer {
+    padding: 10px 5px;
+    padding-bottom: 50px;
+    text-align: right;
+    font-size: 12px;
+    color: #aaa;
+}
+
+footer, .container {
     max-width: 800px;
     margin: auto;
+}
+
+.container {
+
     margin-top: 50px;
     border: 1px solid #eee;
     padding: 60px 75px;
     background: white;
-    margin-bottom: 50px;
 }
 
 
@@ -30,10 +54,13 @@ ul.items {
 
 .items li {
     display: flex;
-    height: 75px;
+    min-height: 75px;
     margin-bottom: 20px;
 }
 
+/**
+ * Highlight
+ */
 .highlight {
     display: flex;
     width: 75px;
@@ -41,6 +68,10 @@ ul.items {
     align-items: center;
     justify-content: center;
     background-color: #c77777;
+}
+
+.highlight[data-source='praktischefilosofie.nl'] {
+    background-color: #9abf6d;
 }
 
 
@@ -55,7 +86,7 @@ ul.items {
     width: calc(100% - 75px);
     padding: 6px 12px 6px 20px;
     flex-direction: column;
-    height: 75px;
+    /* min-height: 75px; */
     border: 1px solid #eee;
     border-left: none;
 }
@@ -73,6 +104,7 @@ ul.items {
 
 .name {
     font-size: 20px;
+    width: 400px;
     color: #333;
 }
 
@@ -83,13 +115,10 @@ ul.items {
 
 .month-separator {
     display: flex;
+    margin-top: 75px;
     color: #a5a5a5;
-    /* align-items: center; */
-    /* text-align: center; */
     margin-bottom: 15px;
     padding: 5px;
-    /* border-top: 1px solid #eee; */
-    /* justify-content: center; */
 }
 
 .text {
@@ -102,5 +131,18 @@ ul.items {
 }
 
 .items li:hover .details {
-    border-color: #ddd;
+    border-color: #d2d2d2;
+}
+
+
+.month-separator:first-of-type {
+    margin-top: 50px !important;
+}
+
+footer a {
+    color: inherit;
+}
+
+footer a:hover {
+    color: #777;
 }
