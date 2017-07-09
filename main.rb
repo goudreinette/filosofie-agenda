@@ -19,10 +19,10 @@ get '/feed.ics' do
   all_items.map do |item|
     cal.event do |e|
       e.summary     = item.name
+      e.description = item.name
       e.dtstart     = item.date
       e.dtend       = item.date
       e.url         = item.link
-      e.description = ""
     end
   end
 
