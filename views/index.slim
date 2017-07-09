@@ -1,0 +1,23 @@
+title Filosofie agenda
+link href="/base.css" rel="stylesheet"
+
+.container
+  h1 Filosofie agenda
+
+  - @items.group_by {|i| i.date.month } .each do |month, items|  
+    .month-separator
+      = items.first.date.stamp("January 2000")
+    ul.items
+      - items.each do |item|
+        li
+          .highlight
+            .day = item.date.day
+          a.details href=item.link
+            .top
+              .date = item.date.stamp("sunday 1 may 2000").downcase
+              .source = item.source.downcase
+            .bottom
+              .name = item.name
+              .city = item.city.downcase
+            
+          
