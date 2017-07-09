@@ -47,6 +47,11 @@
     .highlight .day {
         display: none;
     }
+
+    footer {
+        text-align: center !important;
+        padding-bottom: 30px !important;
+    }
 }
 
 
