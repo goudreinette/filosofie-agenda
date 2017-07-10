@@ -51,7 +51,6 @@
     }
 
     footer {
-        text-align: center !important;
         padding: 10px 20px !important;
     }
 }
@@ -215,7 +214,7 @@ footer a:hover {
     display: flex;
     align-items: center;
     margin-top: 60px;
-    color: #a5a5a5;
+    color: #909090;
     margin-bottom: 15px;
     width: 100%;
     padding: 0 5px;
