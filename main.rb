@@ -17,10 +17,10 @@ get '/feed.ics' do
   # Generate feed
   cal = Icalendar::Calendar.new
   all_items.map do |item|
-    p item.name
+    pp item.description
     cal.event do |e|
       e.summary     = item.name
-      e.description = item.name
+      e.description = item.description
       e.dtstart     = item.date
       e.dtend       = item.date
       e.url         = item.link
