@@ -1,6 +1,3 @@
-
-
-
 class Item
   attr_reader :name, :date, :source, :link, :city
 
