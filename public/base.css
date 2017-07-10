@@ -169,11 +169,10 @@ ul.items {
 
 .name {
     font-size: 20px;
-    width: 250px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 400px;
+    width: 75%;
     color: #333;
 }
 
