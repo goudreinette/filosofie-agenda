@@ -59,7 +59,7 @@
  * Body
  */
 body {
-    font-family: 'neuzeit';
+    font-family: 'Concourse T3';
     color: #333;
     /*background: url("/art_demo.jpg");
     background-size: cover;*/
@@ -154,6 +154,12 @@ ul.items {
     margin-left: auto;
     display: inline-flex;
     justify-content: flex-end;
+    width: 50px;
+    /* width: 250px; */
+    white-space: nowrap;
+    /* overflow: hidden; */
+    /* text-align: right; */
+    /* text-overflow: ellipsis; */
 }
 
 .top, .bottom {
@@ -163,6 +169,10 @@ ul.items {
 
 .name {
     font-size: 20px;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     width: 400px;
     color: #333;
 }
