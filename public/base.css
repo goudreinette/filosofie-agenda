@@ -22,7 +22,7 @@
     body {
         font-size: 14px !important;
     }
-    
+
     h1 {
         font-size: 36px !important;
         padding-top: 10px;
@@ -79,16 +79,6 @@ body {
     display: none;
 }
 
-footer {
-    padding: 10px;
-    padding-bottom: 50px;
-    text-align: right;
-    font-size: 14px;
-    display: flex;
-    color: #aaa;
-    justify-content: space-between;
-}
-
 footer, .container {
     max-width: 800px;
     margin: auto;
@@ -109,17 +99,6 @@ h1 {
 }
 
 
-ul.items {
-    list-style: none;
-}
-
-.items li {
-    display: flex;
-    min-height: 75px;
-    margin-bottom: 20px;
-    box-shadow: 0px 1px 4px 0px #eee;
-}
-
 /**
  * Highlight
  */
@@ -136,6 +115,20 @@ ul.items {
     background-color: #9abf6d;
 }
 
+
+/**
+ * Items
+ */
+ul.items {
+    list-style: none;
+}
+
+.items li {
+    display: flex;
+    min-height: 75px;
+    margin-bottom: 20px;
+    box-shadow: 0px 1px 4px 0px #eee;
+}
 
 .items li .top {
     display: flex;
@@ -158,11 +151,7 @@ ul.items {
     display: inline-flex;
     justify-content: flex-end;
     width: 50px;
-    /* width: 250px; */
     white-space: nowrap;
-    /* overflow: hidden; */
-    /* text-align: right; */
-    /* text-overflow: ellipsis; */
 }
 
 .top, .bottom {
@@ -184,19 +173,6 @@ ul.items {
 }
 
 
-.month-separator {
-    display: flex;
-    align-items: center;
-    margin-top: 60px;
-    color: #a5a5a5;
-    margin-bottom: 15px;
-    width: 100%;
-    padding: 0 5px;
-    font-family: Concourse C3;
-    justify-content: space-between;
-    /* border-top: 1px solid #eee; */
-}
-
 .text {
     padding-right: 15px;
 }
@@ -210,8 +186,17 @@ ul.items {
 }
 
 
-.month-separator:first-of-type {
-    margin-top: 50px !important;
+/**
+ * Footer
+ */
+footer {
+    padding: 10px;
+    padding-bottom: 50px;
+    text-align: right;
+    font-size: 14px;
+    display: flex;
+    color: #aaa;
+    justify-content: space-between;
 }
 
 footer a {
@@ -223,14 +208,21 @@ footer a:hover {
 }
 
 
-.month-sepatrator hr {
+/**
+ * Month separator
+ */
+.month-separator {
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+    color: #a5a5a5;
+    margin-bottom: 15px;
     width: 100%;
+    padding: 0 5px;
+    font-family: Concourse C3;
+    justify-content: space-between;
 }
 
-.month-separator .line {
-    /* width: 70%; */
-    border-top: 1px solid #e2e2e2;
-    height: 0px;
-    flex-grow: 1;
-    display: none;
+.month-separator:first-of-type {
+    margin-top: 50px !important;
 }
