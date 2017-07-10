@@ -185,15 +185,19 @@ ul.items {
 
 .month-separator {
     display: flex;
-    margin-top: 50px;
+    align-items: center;
+    margin-top: 60px;
     color: #a5a5a5;
     margin-bottom: 15px;
-    padding: 5px;
+    width: 100%;
+    padding: 0 5px;
+    font-family: Concourse C3;
+    justify-content: space-between;
+    /* border-top: 1px solid #eee; */
 }
 
 .text {
-    color: grey;
-    margin-bottom: 15px;
+    padding-right: 15px;
 }
 
 .items li:hover {
@@ -215,4 +219,17 @@ footer a {
 
 footer a:hover {
     color: #777;
+}
+
+
+.month-sepatrator hr {
+    width: 100%;
+}
+
+.month-separator .line {
+    /* width: 70%; */
+    border-top: 1px solid #e2e2e2;
+    height: 0px;
+    flex-grow: 1;
+    display: none;
 }

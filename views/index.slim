@@ -9,8 +9,9 @@ meta name="viewport" content="width=device-width, initial-scale=1.0"
   h1 Filosofie agenda
   
   - @items.group_by {|i| i.date.month } .each do |month, items|  
-    .month-separator
+    .month-separator 
       = items.first.date.stamp("January 2000")
+      
     ul.items
       - items.each do |item|
         li
