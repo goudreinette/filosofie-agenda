@@ -22,6 +22,7 @@
     body {
         font-size: 14px !important;
     }
+    
     h1 {
         font-size: 36px !important;
         padding-top: 10px;
@@ -29,6 +30,7 @@
 
     .container {
         padding: 20px !important;
+        padding-bottom: 0px !important;
         margin: 0 !important;
     }
 
@@ -50,7 +52,7 @@
 
     footer {
         text-align: center !important;
-        padding-bottom: 30px !important;
+        padding-bottom: 10px !important;
     }
 }
 
@@ -78,10 +80,10 @@ body {
 }
 
 footer {
-    padding: 10px 5px;
+    padding: 10px;
     padding-bottom: 50px;
     text-align: right;
-    font-size: 12px;
+    font-size: 14px;
     display: flex;
     color: #aaa;
     justify-content: space-between;
