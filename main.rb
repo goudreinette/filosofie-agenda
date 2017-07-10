@@ -6,17 +6,21 @@ require 'require_all'
 require_all 'source'
 
 
+configure do
+  @@items = Items.new
+end
+
+
 get '/' do
   @title = 'Filosofie agenda'
-  @items = all_items
-  pp filosofie_nl_items
+  @items = @@items.all
   slim :index
 end
 
 get '/feed.ics' do
   # Generate feed
   cal = Icalendar::Calendar.new
-  all_items.map do |item|
+  @@items.all.map do |item|
     pp item.description
     cal.event do |e|
       e.summary     = item.name
