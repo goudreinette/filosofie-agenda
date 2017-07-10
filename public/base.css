@@ -5,13 +5,13 @@
  * Fonts
  */
 @font-face {
-    font-family: 'neuzeit';
-    src: url('neuzeit.ttf');
+    font-family: 'Concourse C3';
+    src: url('Concourse C3 Regular.otf');
 }
 
 @font-face {
-    font-family: 'neuzeit';
-    src: url('neuzeit-bold.ttf');
+    font-family: 'Concourse T3';
+    src: url('Concourse T3 Regular.otf');
     font-weight: bold;
 }
 
