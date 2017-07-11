@@ -23,38 +23,41 @@ class Items
     puts "Fetching all items..."
     (fetch_filosofie + fetch_praktische_filosofie)
       .sort_by(&:date)
+      .select {|i| i.date.month >= Date.today.month }
       .uniq(&:link)
       .tap {|i| pp i }
   end
 
   def filosofie_nl_pages
-    ['https://www.filosofie.nl/agenda/index.html',
-     'https://www.filosofie.nl/nl/agenda/hitlist/0/08-2017/index.html',
-     'https://www.filosofie.nl/nl/agenda/hitlist/0/09-2017/index.html']
+    (Date.today..Date.today + 11.months)
+      .map {|d| "#{d.month}-#{d.year}"}
+      .uniq
+      .map {|d| "https://www.filosofie.nl/nl/agenda/hitlist/0/#{d}/index.html" }
   end
 
   def fetch_filosofie
     filosofie_nl_pages.flat_map do |url|
-     @mechanize
-       .get(url)
-       .at('ul.agenda-list').css('a')
-       .map do |a|
-         # Date
-         month = a.css('b i').text
-         a.css('b i').remove
-         day = a.css('b').text
+      if agenda_list = @mechanize.get(url).at('ul.agenda-list')
+        agenda_list.css('a').map do |a|
+          # Date
+          month = a.css('b i').text
+          a.css('b i').remove
+          day = a.css('b').text
 
-         # City
-         city = a.css('p i').text
-         a.css('i').remove
+          # City
+          city = a.css('p i').text
+          a.css('i').remove
 
-         Item.new(city: city,
-                  name: a.css('p').text,
-                  date: Date.parse("#{day} #{month}"),
-                  source: 'filosofie.nl',
-                  link: "https://www.filosofie.nl#{a.attr('href')}")
-       end
+          Item.new(city: city,
+                   name: a.css('p').text,
+                   date: Date.parse("#{day} #{month}"),
+                   source: 'filosofie.nl',
+                   link: "https://www.filosofie.nl#{a.attr('href')}")
+        end
+      else
+        []
      end
+   end
   end
 
   def fetch_praktische_filosofie
