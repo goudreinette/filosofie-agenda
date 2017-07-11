@@ -27,29 +27,33 @@ class Items
       .tap {|i| pp i }
   end
 
-  def fetch_filosofie
+  def filosofie_nl_pages
     ['https://www.filosofie.nl/agenda/index.html',
-     'https://www.filosofie.nl/nl/agenda/hitlist/0/08-2017/index.html']
-     .flat_map do |url|
-       @mechanize
-         .get(url)
-         .at('ul.agenda-list').css('a')
-         .map do |a|
-           # Date
-           month = a.css('b i').text
-           a.css('b i').remove
-           day = a.css('b').text
+     'https://www.filosofie.nl/nl/agenda/hitlist/0/08-2017/index.html',
+     'https://www.filosofie.nl/nl/agenda/hitlist/0/09-2017/index.html']
+  end
 
-           # City
-           city = a.css('p i').text
-           a.css('i').remove
+  def fetch_filosofie
+    filosofie_nl_pages.flat_map do |url|
+     @mechanize
+       .get(url)
+       .at('ul.agenda-list').css('a')
+       .map do |a|
+         # Date
+         month = a.css('b i').text
+         a.css('b i').remove
+         day = a.css('b').text
 
-           Item.new(city: city,
-                    name: a.css('p').text,
-                    date: Date.parse("#{day} #{month}"),
-                    source: 'filosofie.nl',
-                    link: "https://www.filosofie.nl#{a.attr('href')}")
-         end
+         # City
+         city = a.css('p i').text
+         a.css('i').remove
+
+         Item.new(city: city,
+                  name: a.css('p').text,
+                  date: Date.parse("#{day} #{month}"),
+                  source: 'filosofie.nl',
+                  link: "https://www.filosofie.nl#{a.attr('href')}")
+       end
      end
   end
 
