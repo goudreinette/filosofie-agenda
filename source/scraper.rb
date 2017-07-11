@@ -23,29 +23,34 @@ class Items
     puts "Fetching all items..."
     (fetch_filosofie + fetch_praktische_filosofie)
       .sort_by(&:date)
+      .uniq(&:link)
       .tap {|i| pp i }
   end
 
   def fetch_filosofie
-    @mechanize
-      .get('https://www.filosofie.nl/agenda/index.html')
-      .at('ul.agenda-list').css('a')
-      .map do |a|
-        # Date
-        month = a.css('b i').text
-        a.css('b i').remove
-        day = a.css('b').text
+    ['https://www.filosofie.nl/agenda/index.html',
+     'https://www.filosofie.nl/nl/agenda/hitlist/0/08-2017/index.html']
+     .flat_map do |url|
+       @mechanize
+         .get(url)
+         .at('ul.agenda-list').css('a')
+         .map do |a|
+           # Date
+           month = a.css('b i').text
+           a.css('b i').remove
+           day = a.css('b').text
 
-        # City
-        city = a.css('p i').text
-        a.css('i').remove
+           # City
+           city = a.css('p i').text
+           a.css('i').remove
 
-        Item.new(city: city,
-                 name: a.css('p').text,
-                 date: Date.parse("#{day} #{month}"),
-                 source: 'filosofie.nl',
-                 link: "https://www.filosofie.nl#{a.attr('href')}")
-      end
+           Item.new(city: city,
+                    name: a.css('p').text,
+                    date: Date.parse("#{day} #{month}"),
+                    source: 'filosofie.nl',
+                    link: "https://www.filosofie.nl#{a.attr('href')}")
+         end
+     end
   end
 
   def fetch_praktische_filosofie
