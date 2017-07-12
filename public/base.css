@@ -114,6 +114,11 @@ h1 {
     background-color: #9abf6d;
 }
 
+.highlight[data-source='rug.nl'] {
+    background-color: #7796c7;
+}
+
+
 
 /**
  * Items
