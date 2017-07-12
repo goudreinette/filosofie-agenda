@@ -21,11 +21,12 @@ class Items
 
   def fetch_all
     puts "Fetching all items..."
-    (fetch_filosofie + fetch_praktische_filosofie)
-      .sort_by(&:date)
-      .select {|i| i.date.month >= Date.today.month }
-      .uniq(&:link)
+    (fetch_rug)
       .tap {|i| pp i }
+
+      # .sort_by(&:date)
+      # .select {|i| i.date.month >= Date.today.month }
+      # .uniq(&:link)
   end
 
   def filosofie_nl_pages
@@ -74,6 +75,19 @@ class Items
                  date: Date.parse("#{day} #{month}"),
                  source: 'praktischefilosofie.nl',
                  link: tr.css('.description a').attr('href'))
+      end
+  end
+
+  def fetch_rug
+    @mechanize
+      .get('http://www.rug.nl/filosofie/news/events/')
+      .css('.rug-layout .rug-table-holder')
+      .map do |table|
+        Item.new(city: 'Groningen',
+                 name:  table.css('h2').text,
+                 date: Date.parse(table.css('tr:nth-child(3) td').text),
+                 source: 'rug.nl',
+                 link: 'http://www.rug.nl/filosofie/news/events/')
       end
   end
 end
