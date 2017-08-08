@@ -22,9 +22,9 @@ class Items
   def fetch_all
     puts "Fetching all items..."
     (fetch_filosofie + fetch_praktische_filosofie + fetch_rug)
-      .tap {|i| pp i }
       .sort_by(&:date)
       .select {|i| i.date >= Date.today }
+      .tap {|i| pp i }
   end
 
   def filosofie_nl_pages
